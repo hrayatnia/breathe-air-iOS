@@ -44,22 +44,24 @@
                                 <rect key="frame" x="167" y="142" width="80.5" height="87.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BO7-15-gu3">
-                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="38.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPe-hH-Uq1">
-                                        <rect key="frame" x="0.0" y="46.5" width="80.5" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <rect key="frame" x="0.0" y="49" width="80.5" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f37-Ss-w4T">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f37-Ss-w4T">
                                 <rect key="frame" x="43" y="253.5" width="328" height="552.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnA-xs-kir">
                                 <rect key="frame" x="16" y="830" width="382" height="32"/>
@@ -70,6 +72,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdU-3Q-aTw">
+                                <rect key="frame" x="365" y="48" width="23" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="Rag-Ej-GWt"/>
+                                    <constraint firstAttribute="height" constant="22" id="pBi-zG-p6d"/>
+                                </constraints>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" image="repeat" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -78,6 +91,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cnA-xs-kir" secondAttribute="trailing" constant="16" id="A3a-Ym-HKf"/>
                             <constraint firstItem="f37-Ss-w4T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F7b-Uw-EqT"/>
                             <constraint firstItem="cnA-xs-kir" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ox7-5X-j3l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rdU-3Q-aTw" secondAttribute="trailing" constant="26" id="PHy-WN-c8j"/>
                             <constraint firstItem="cnA-xs-kir" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SaN-eJ-zCM"/>
                             <constraint firstItem="f37-Ss-w4T" firstAttribute="top" secondItem="zpU-w3-x5w" secondAttribute="bottom" constant="24" id="UV6-5L-a0C"/>
                             <constraint firstItem="zpU-w3-x5w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zrp-Nl-BzA"/>
@@ -86,13 +100,24 @@
                             <constraint firstItem="f37-Ss-w4T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="k90-wT-Dfd"/>
                             <constraint firstItem="06H-xP-0qr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="xlE-qH-bmS"/>
                             <constraint firstItem="cnA-xs-kir" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="y3j-hG-pjc"/>
+                            <constraint firstItem="rdU-3Q-aTw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="ye2-a6-h06"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="Ndp-YH-SJW" id="4Bh-bA-fog"/>
+                        <outlet property="indexLabel" destination="tPe-hH-Uq1" id="pFx-ck-TCP"/>
+                        <outlet property="offerTable" destination="f37-Ss-w4T" id="BWx-kw-Dpx"/>
+                        <outlet property="resultHourLabel" destination="cnA-xs-kir" id="gP4-Dd-uHu"/>
+                        <outlet property="status" destination="BO7-15-gu3" id="P3O-Dl-heY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="136.60714285714286"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="repeat" catalog="system" width="64" height="48"/>
+    </resources>
 </document>
