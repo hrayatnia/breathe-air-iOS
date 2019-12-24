@@ -11,6 +11,7 @@ target 'breatheAir' do
       pod 'RxDataSources'
       pod 'Alamofire'
       pod 'CocoaLumberjack'
+      pod 'Kingfisher'
   target 'breatheAirTests' do
     inherit! :search_paths
     # Pods for testing

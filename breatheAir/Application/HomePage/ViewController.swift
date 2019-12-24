@@ -29,7 +29,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.initVM()
+        
+        offerTable.register(UINib(nibName: "OfferToDoTableViewCell", bundle: nil), forCellReuseIdentifier: OfferToDoTableViewCell.Identifier)
+        
         self.binder()
+        
     }
     
     private func initVM() {
@@ -49,6 +53,8 @@ class ViewController: UIViewController {
         self.bindIndexLabel()
         self.bindOfferTable()
         self.bindBackgroundColor()
+        self.bindErrorMessage()
+        self.bindLastDate()
     }
     
     private func bindCityLabel() {
@@ -110,6 +116,29 @@ class ViewController: UIViewController {
          }
         .disposed(by: disposeBag)
         
+    }
+    
+    private func bindErrorMessage() {
+        self
+            .vm
+            .output
+            .errorMessage
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{
+                data in
+                self.view.makeToast(data)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func bindLastDate() {
+        self
+            .vm
+            .output
+            .lastDate
+            .asObservable()
+            .bind(to: self.resultHourLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 
 

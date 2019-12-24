@@ -19,7 +19,7 @@ struct HomeService: Service {
             .set(method: .post)
             .set(body: data.toJSONData()!)
     }
-    private var data: Location
+    var data: Location
     typealias ResultType = LocationBasedResponse
     
     init(data: Location,

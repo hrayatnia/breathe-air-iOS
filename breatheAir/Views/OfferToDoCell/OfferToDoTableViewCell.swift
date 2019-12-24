@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import Kingfisher
 
 class OfferToDoTableViewCell: UITableViewCell {
-    static let Identifier: String = ""
+    static let Identifier: String = "OfferToDoTableViewCellReuse"
     var cellData: OfferToDo? = nil {
         didSet {
-            
+            self.cellTitle.text = self.cellData?.text
+            let url = URL(string: (self.cellData?.imageUrl)!)
+            cellImage.kf.setImage(with: url)
         }
     }
 
+    @IBOutlet weak var cellTitle: UILabel!
+    @IBOutlet weak var cellImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

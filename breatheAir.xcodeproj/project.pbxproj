@@ -32,6 +32,8 @@
 		583437FB23B166E100B48EF2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583437FA23B166E100B48EF2 /* LocationManager.swift */; };
 		5834380023B1710600B48EF2 /* OfferToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583437FE23B1710600B48EF2 /* OfferToDoTableViewCell.swift */; };
 		5834380123B1710600B48EF2 /* OfferToDoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583437FF23B1710600B48EF2 /* OfferToDoTableViewCell.xib */; };
+		5834380323B180D000B48EF2 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834380223B180D000B48EF2 /* Toast.swift */; };
+		5834383323B18D9700B48EF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834383223B18D9700B48EF2 /* SceneDelegate.swift */; };
 		5884FA8A23B1514D000CF422 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5884FA8923B1514D000CF422 /* AppDelegate.swift */; };
 		5884FA8E23B1514D000CF422 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5884FA8D23B1514D000CF422 /* ViewController.swift */; };
 		5884FA9123B1514D000CF422 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5884FA8F23B1514D000CF422 /* Main.storyboard */; };
@@ -80,7 +82,9 @@
 		583437FC23B1671500B48EF2 /* breatheAir.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = breatheAir.entitlements; sourceTree = "<group>"; };
 		583437FE23B1710600B48EF2 /* OfferToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferToDoTableViewCell.swift; sourceTree = "<group>"; };
 		583437FF23B1710600B48EF2 /* OfferToDoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferToDoTableViewCell.xib; sourceTree = "<group>"; };
-		5884FA8623B1514D000CF422 /* breatheAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = breatheAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5834380223B180D000B48EF2 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		5834383223B18D9700B48EF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5884FA8623B1514D000CF422 /* breathe air.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "breathe air.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5884FA8923B1514D000CF422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5884FA8D23B1514D000CF422 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5884FA9023B1514D000CF422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 			children = (
 				583437FD23B170DE00B48EF2 /* OfferToDoCell */,
 				583437EE23B1619E00B48EF2 /* GradientView.swift */,
+				5834380223B180D000B48EF2 /* Toast.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 		5884FA7D23B1514D000CF422 = {
 			isa = PBXGroup;
 			children = (
+				5834383223B18D9700B48EF2 /* SceneDelegate.swift */,
 				5884FA8823B1514D000CF422 /* breatheAir */,
 				5884FA9F23B15150000CF422 /* breatheAirTests */,
 				5884FA8723B1514D000CF422 /* Products */,
@@ -248,7 +254,7 @@
 		5884FA8723B1514D000CF422 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5884FA8623B1514D000CF422 /* breatheAir.app */,
+				5884FA8623B1514D000CF422 /* breathe air.app */,
 				5884FA9C23B15150000CF422 /* breatheAirTests.xctest */,
 			);
 			name = Products;
@@ -309,7 +315,7 @@
 			);
 			name = breatheAir;
 			productName = breatheAir;
-			productReference = 5884FA8623B1514D000CF422 /* breatheAir.app */;
+			productReference = 5884FA8623B1514D000CF422 /* breathe air.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5884FA9B23B15150000CF422 /* breatheAirTests */ = {
@@ -470,8 +476,10 @@
 				583437F723B1629800B48EF2 /* deviceHasNotch.swift in Sources */,
 				583437D523B15EB600B48EF2 /* HomeViewModel.swift in Sources */,
 				583437EA23B1612B00B48EF2 /* DataRequest+Decodable.swift in Sources */,
+				5834383323B18D9700B48EF2 /* SceneDelegate.swift in Sources */,
 				583437EF23B1619E00B48EF2 /* GradientView.swift in Sources */,
 				583437DB23B15F4D00B48EF2 /* AnyService.swift in Sources */,
+				5834380323B180D000B48EF2 /* Toast.swift in Sources */,
 				583437F123B161E200B48EF2 /* Storyboard.swift in Sources */,
 				583437F523B1627D00B48EF2 /* Device.swift in Sources */,
 				5884FA8E23B1514D000CF422 /* ViewController.swift in Sources */,
@@ -653,7 +661,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yellowdev.breatheAir;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "breathe air";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -673,7 +681,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yellowdev.breatheAir;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "breathe air";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

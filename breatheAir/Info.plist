@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>breathe air need your location to detect nearest station to you, also it'll be used to detect your application locale, in background we will autoupdate the AQI index for you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>breathe air need your location to detect nearest station to you, also it'll be used to detect your application locale</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
