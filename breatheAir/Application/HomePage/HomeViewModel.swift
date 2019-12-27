@@ -10,46 +10,8 @@ import Foundation
 import RxSwift
 
 
-enum StatusType: String {
-    case healthy = "healthy"
-    case moderate = "moderate"
-    case sensetive = "sensetive"
-    case unhealthy = "unhealthy"
-    case veryUnhealthy = "veryUnhealthy"
-    case hazardious = "hazardious"
-    static func getType(by value: Double) -> StatusType {
-        if value > 0 && value < 51 {
-            return StatusType.healthy
-        }else if value < 101 {
-            return StatusType.moderate
-        }else if value < 151 {
-            return StatusType.sensetive
-        }else if value < 200 {
-            return StatusType.unhealthy
-        }else if value < 300 {
-            return StatusType.veryUnhealthy
-        } else {
-            return StatusType.hazardious
-        }
-    }
-    func getColor(type: StatusType) -> String {
-        switch type {
-        case .healthy:
-            return "#2E7F18"
-        case .moderate:
-            return "#45731E"
-        case .sensetive:
-            return "#675E24"
-        case .unhealthy:
-            return "#8D472B"
-        case .veryUnhealthy:
-            return "#B13433"
-        case .hazardious:
-            return "#C82538"
-            
-        }
-    }
-}
+
+
 
 struct HomeInput {
     let data: Variable<Location>
@@ -58,10 +20,13 @@ struct HomeOutput {
     let result: Variable<LocationBasedResponse>
     let err: Variable<Error>
     let currentCity: PublishSubject<String> = PublishSubject<String>()
-    let valueToShow: PublishSubject<String> = PublishSubject<String>()
+    let valueTo1Show: PublishSubject<String> = PublishSubject<String>()
+    let valueTo2Show: PublishSubject<String> = PublishSubject<String>()
+    let valueTo3Show: PublishSubject<String> = PublishSubject<String>()
     let lastDate: PublishSubject<String> = PublishSubject<String>()
     let typeToShow: PublishSubject<StatusType> = PublishSubject<StatusType>()
-    let offerTodo: PublishSubject<[OfferToDo]> = PublishSubject<[OfferToDo]>()
+    let offerTodo: PublishSubject<OfferToDo> = PublishSubject<OfferToDo>()
+    let imageAssets: PublishSubject<UIImage> = PublishSubject()
     let homeViewColor: PublishSubject<String> = PublishSubject()
     let errorMessage: PublishSubject<String> = PublishSubject()
 }
@@ -95,9 +60,12 @@ struct HomeViewModel: ViewModel {
     private func locationListener() {
         LocationManager.shared.locationUpdated.asObservable().subscribe(onNext: {
             location in
+            
             self.output.currentCity.onNext(LocationManager.shared.city ?? "")
+            self.service.run_request()
         }).disposed(by: disposeBag)
     }
+    
     
     private func responseListener() {
         self
@@ -119,6 +87,7 @@ struct HomeViewModel: ViewModel {
             .skip(1)
             .subscribe(onNext: {
                 err in
+                print(err.localizedDescription)
                 self
                     .output
                     .errorMessage
@@ -128,12 +97,16 @@ struct HomeViewModel: ViewModel {
     }
     
     private func publish(data value: LocationBasedResponse) {
-        self.output.offerTodo.onNext(value.offerToDo)
+        self.output.offerTodo.onNext(value.offerToDo.first!)
         self.output.currentCity.onNext(value.location.name)
-        self.output.valueToShow.onNext("\(value.data.pm10)")
-        let type = StatusType.getType(by: value.data.pm10)
+        self.output.valueTo1Show.onNext("PM2.5 :    \(value.data.pm2) AQI")
+        self.output.valueTo2Show.onNext("PM10 :     \(value.data.pm10) AQI")
+        self.output.valueTo3Show.onNext("CO :       \(value.data.co2) AQI")
+        let type = StatusType.getType(by: value.data.AQIIndex)
         self.output.typeToShow.onNext(type)
+        self.output.imageAssets.onNext(type.getImageAsset(type: type))
         self.output.homeViewColor.onNext(type.getColor(type: type))
+        self.output.lastDate.onNext("\(timeAgoSince(value.date))")
         
     }
 }

@@ -12,7 +12,7 @@ import RxSwift
 
 class LocationManager:NSObject, CLLocationManagerDelegate {
     static let shared: LocationManager = LocationManager()
-    private let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     let locationUpdated: PublishSubject<CLLocationCoordinate2D> = PublishSubject()
     private var lastLocation: CLLocationCoordinate2D? = nil {
         didSet {
@@ -40,12 +40,17 @@ class LocationManager:NSObject, CLLocationManagerDelegate {
     
     
     func currentLocationRequest() -> Location {
+        self.locationManager.requestLocation()
         if let location = self.lastLocation {
             return self.makeRequest(location)
         }else if let location = self.locationManager.location?.coordinate {
             return self.makeRequest(location)
         }else {
-            return Location(uuid: "", deviceId: "", lat: 51, long: 31, date: Date())
+            return Location(uuid: UUID().uuidString,
+                            deviceId: Device.vendorIdString,
+                            lat: 51,
+                            long: 31,
+                            date: Date())
         }
     }
     
@@ -61,6 +66,22 @@ class LocationManager:NSObject, CLLocationManagerDelegate {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         self.lastLocation = locValue
         self.locationUpdated.onNext(locValue)
+        manager.stopUpdatingLocation()
+        self.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        Logger.shared.log(error.localizedDescription)
+    }
+    
+    
+    
+    private func stopUpdatingLocation(){
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func startUpdatingLocation() {
+        self.locationManager.startUpdatingLocation()
     }
     
     func getPlace(completion: @escaping (CLPlacemark?) -> Void) {

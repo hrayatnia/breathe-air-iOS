@@ -17,5 +17,5 @@ struct ResponseError:Decodable {
 protocol BaseResponse: Decodable {
     var uuid: String {get}
     var date: Date {get}
-    var error: ResponseError{get}
+    var error: ResponseError?{get}
 }

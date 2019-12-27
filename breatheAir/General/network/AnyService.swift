@@ -77,8 +77,9 @@ struct ErrorMessage {
 extension Request {
     public func debugLog() -> Request {
         #if DEBUG
-        debugPrint(self)
+        //debugPrint(self)
         #endif
+        //debugPrint(self)
         return self
     }
 }

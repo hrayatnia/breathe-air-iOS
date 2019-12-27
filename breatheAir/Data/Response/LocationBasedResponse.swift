@@ -15,11 +15,11 @@ struct LocationBasedResponse: BaseResponse,Decodable {
     
     var date: Date = Date()
     
-    var error: ResponseError = ResponseError(message: "", code: "", localeMessage: "")
+    var error: ResponseError? = nil
     
     var location: LocationResponse = LocationResponse(lat: 0, lon: 0, name: "")
     
-    var data: LocationBasedDataResponse = LocationBasedDataResponse(pm10: 0, pm2: 0, co2: 0, others: [])
+    var data: LocationBasedDataResponse = LocationBasedDataResponse(AQIIndex:0 ,pm10: 0, pm2: 0, co2: 0, others: [])
     
     var offerToDo: [OfferToDo] = []
 }
@@ -32,6 +32,7 @@ struct LocationResponse: Decodable {
 
 
 struct LocationBasedDataResponse: Decodable {
+    let AQIIndex: Double
     let pm10: Double
     let pm2: Double
     let co2: Double

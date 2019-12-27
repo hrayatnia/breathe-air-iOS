@@ -23,6 +23,7 @@ class OfferToDoTableViewCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.layer.backgroundColor = UIColor.clear.cgColor
         // Initialization code
     }
 

@@ -14,13 +14,13 @@ extension DataRequest {
     private func decodableResponseSerializer<T: Decodable>() -> DataResponseSerializer<T> {
         return DataResponseSerializer { request, response, data, error in
             guard error == nil else { return .failure(error!) }
-
             guard let data = data else {
                 return .failure(AFError.responseSerializationFailed(reason: .inputDataNil))
             }
             return Result {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .millisecondsSince1970
+                print("result is \( try decoder.decode(T.self, from: data))")
                 return try decoder.decode(T.self, from: data)
 
             }
@@ -38,7 +38,7 @@ extension DataRequest {
 extension DataRequest {
     public func debugLogs() -> Self {
         #if DEBUG
-        debugPrint(self)
+        //debugPrint(self)
         #endif
         return self
     }
