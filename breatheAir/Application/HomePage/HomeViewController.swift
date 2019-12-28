@@ -10,8 +10,17 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import DrawerKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,DrawerPresentable {
+    var heightOfPartiallyExpandedDrawer: CGFloat {
+        return (2*Device.TheCurrentDeviceHeight)/3
+    }
+    
+    @IBOutlet var presentedView: HomeView!
+    
+    
+    private var notificationToken: NotificationToken!
 
     @IBOutlet weak var cityLabel: UILabel!
     
@@ -43,6 +52,16 @@ class HomeViewController: UIViewController {
        // offerTable.register(UINib(nibName: "OfferToDoTableViewCell", bundle: nil), forCellReuseIdentifier: OfferToDoTableViewCell.Identifier)
        
        // self.offerTable.layer.backgroundColor = UIColor.clear.cgColor
+        self.notificationToken = NotificationCenter.default
+                   .addObserver(name: DrawerNotification.drawerExteriorTappedNotification) {
+                   (notification: DrawerNotification, object: Any?) in
+                   switch notification {
+                   case .drawerExteriorTapped:
+                       print("drawerExteriorTapped")
+                   default:
+                       break
+                   }
+               }
         
     }
     

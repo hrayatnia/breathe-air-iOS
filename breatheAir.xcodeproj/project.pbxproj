@@ -15,6 +15,10 @@
 		5812289723B6B4B3003AA752 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812289623B6B4B3003AA752 /* Artwork.swift */; };
 		5812289923B6B7B1003AA752 /* MapPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812289823B6B7B1003AA752 /* MapPageService.swift */; };
 		5812289B23B6B8CD003AA752 /* MapPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812289A23B6B8CD003AA752 /* MapPageResponse.swift */; };
+		5812289D23B6CAF0003AA752 /* MapPageDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812289C23B6CAF0003AA752 /* MapPageDrawer.swift */; };
+		581228A023B6CD82003AA752 /* PresentedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812289F23B6CD82003AA752 /* PresentedNavigationController.swift */; };
+		581228A223B6CE04003AA752 /* HomeViewDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581228A123B6CE04003AA752 /* HomeViewDrawer.swift */; };
+		581228A423B6CF0E003AA752 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581228A323B6CF0E003AA752 /* HomeView.swift */; };
 		583437CA23B1564300B48EF2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583437C923B1564300B48EF2 /* Location.swift */; };
 		583437CC23B1567900B48EF2 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583437CB23B1567900B48EF2 /* BaseRequest.swift */; };
 		583437CE23B156F900B48EF2 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583437CD23B156F900B48EF2 /* BaseResponse.swift */; };
@@ -77,6 +81,10 @@
 		5812289623B6B4B3003AA752 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		5812289823B6B7B1003AA752 /* MapPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPageService.swift; sourceTree = "<group>"; };
 		5812289A23B6B8CD003AA752 /* MapPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPageResponse.swift; sourceTree = "<group>"; };
+		5812289C23B6CAF0003AA752 /* MapPageDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPageDrawer.swift; sourceTree = "<group>"; };
+		5812289F23B6CD82003AA752 /* PresentedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentedNavigationController.swift; sourceTree = "<group>"; };
+		581228A123B6CE04003AA752 /* HomeViewDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDrawer.swift; sourceTree = "<group>"; };
+		581228A323B6CF0E003AA752 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		583437C923B1564300B48EF2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		583437CB23B1567900B48EF2 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		583437CD23B156F900B48EF2 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
@@ -163,6 +171,7 @@
 				5812288F23B6A940003AA752 /* MapPageViewController.swift */,
 				5812289123B6B14F003AA752 /* MapPageViewModel.swift */,
 				5812289823B6B7B1003AA752 /* MapPageService.swift */,
+				5812289C23B6CAF0003AA752 /* MapPageDrawer.swift */,
 			);
 			path = MapViewPage;
 			sourceTree = "<group>";
@@ -174,6 +183,14 @@
 				5812289623B6B4B3003AA752 /* Artwork.swift */,
 			);
 			path = Artwork;
+			sourceTree = "<group>";
+		};
+		5812289E23B6CD61003AA752 /* PresentedNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				5812289F23B6CD82003AA752 /* PresentedNavigationController.swift */,
+			);
+			path = PresentedNavigationController;
 			sourceTree = "<group>";
 		};
 		583437C623B155EB00B48EF2 /* Data */ = {
@@ -233,6 +250,8 @@
 				583437D423B15EB600B48EF2 /* HomeViewModel.swift */,
 				583437F823B162CE00B48EF2 /* HomeService.swift */,
 				58A2BF9323B2AE080078F3C8 /* HomeViewController+Binder.swift */,
+				581228A123B6CE04003AA752 /* HomeViewDrawer.swift */,
+				581228A323B6CF0E003AA752 /* HomeView.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -277,6 +296,7 @@
 		583437ED23B1619200B48EF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5812289E23B6CD61003AA752 /* PresentedNavigationController */,
 				5812289323B6B45A003AA752 /* Artwork */,
 				583437FD23B170DE00B48EF2 /* OfferToDoCell */,
 				583437EE23B1619E00B48EF2 /* GradientView.swift */,
@@ -531,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5812289B23B6B8CD003AA752 /* MapPageResponse.swift in Sources */,
+				581228A223B6CE04003AA752 /* HomeViewDrawer.swift in Sources */,
 				583437E023B1601F00B48EF2 /* AppSetting.swift in Sources */,
 				583437CE23B156F900B48EF2 /* BaseResponse.swift in Sources */,
 				583437F323B1624800B48EF2 /* Localizable.swift in Sources */,
@@ -538,10 +559,13 @@
 				583437CC23B1567900B48EF2 /* BaseRequest.swift in Sources */,
 				583437E223B1607F00B48EF2 /* RequestBuilder.swift in Sources */,
 				5812289923B6B7B1003AA752 /* MapPageService.swift in Sources */,
+				5812289D23B6CAF0003AA752 /* MapPageDrawer.swift in Sources */,
 				583437E623B160CB00B48EF2 /* RequestTimeoutInterval.swift in Sources */,
 				5834380023B1710600B48EF2 /* OfferToDoTableViewCell.swift in Sources */,
 				58AD073623B4A10A00625613 /* LoadingButton.swift in Sources */,
+				581228A023B6CD82003AA752 /* PresentedNavigationController.swift in Sources */,
 				583437F723B1629800B48EF2 /* deviceHasNotch.swift in Sources */,
+				581228A423B6CF0E003AA752 /* HomeView.swift in Sources */,
 				583437D523B15EB600B48EF2 /* HomeViewModel.swift in Sources */,
 				5812289023B6A940003AA752 /* MapPageViewController.swift in Sources */,
 				58A2BF9223B2A1C40078F3C8 /* StateType.swift in Sources */,
@@ -730,7 +754,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = breatheAir/breatheAir.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 49RBVVJDVP;
 				INFOPLIST_FILE = breatheAir/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -752,7 +776,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = breatheAir/breatheAir.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 49RBVVJDVP;
 				INFOPLIST_FILE = breatheAir/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

@@ -14,11 +14,11 @@ struct AppSetting {
     //static let baseTheme: AppTheme = .light
     static let BaseURL: String = {
         #if Release || AdHoc
-        return "http://0.0.0.0:8000"
+        return "https://breatherair.herokuapp.com"
         #elseif Debug
-        return "http://0.0.0.0:8000"
+        return "https://breatherair.herokuapp.com"
         #endif
-        return "http://0.0.0.0:8000"
+        return "https://breatherair.herokuapp.com"
 
     } ()
 }

@@ -36,7 +36,7 @@ class ArtworkView: MKAnnotationView {
       calloutOffset = CGPoint(x: -5, y: 5)
       let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,
         size: CGSize(width: 30, height: 30)))
-        mapsButton.setBackgroundImage(UIImage(named: "more"), for: UIControl.State())
+        //mapsButton.setBackgroundImage(UIImage(named: "more"), for: UIControl.State())
       rightCalloutAccessoryView = mapsButton
 //      rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
 

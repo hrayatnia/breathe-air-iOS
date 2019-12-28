@@ -9,21 +9,38 @@
 import UIKit
 import MapKit
 import RxSwift
+import DrawerKit
 
-class MapPageViewController: UIViewController {
+class MapPageViewController: UIViewController,DrawerCoordinating {
+    var drawerDisplayController: DrawerDisplayController?
+    
     
     @IBOutlet weak var mapView: MKMapView!
     private var vm: MapPageViewModel!
     private let disposeBag = DisposeBag()
+    private var alert:UIAlertController!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        initLoadingView()
         initVm()
         initMapView()
         addAnnotation()
+        bindErrorMessage()
+    }
+    
+    
+    @IBAction func currentLocationAction(_ sender: Any) {
+        doModalPresentation(passthrough: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.showLoading()
         
     }
+    
     
     private func initMapView() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
@@ -36,6 +53,7 @@ class MapPageViewController: UIViewController {
     }
     
     private func initVm() {
+        
         self.vm = MapPageViewModel(input: MapPageInput())
     }
     
@@ -49,10 +67,45 @@ class MapPageViewController: UIViewController {
             .subscribe(onNext: {data in
                 self.mapView.removeAnnotations([])
                 self.mapView.addAnnotations(data)
+                self.hideLoading()
+                
             })
             .disposed(by: disposeBag)
     }
     
+    
+    private func initLoadingView() {
+        self.alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+        alert.view.addSubview(loadingIndicator)
+        
+    }
+    
+    private func showLoading() {
+        present(self.alert, animated: true, completion: nil)
+    }
+    
+    private func hideLoading() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func bindErrorMessage() {
+        self
+            .vm
+            .output
+            .errorMessage
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{
+                data in
+                self.view.makeToast(data)
+                self.hideLoading()
+            }).disposed(by: disposeBag)
+    }
     
     /*
      // MARK: - Navigation

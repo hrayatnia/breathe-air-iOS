@@ -19,9 +19,24 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BQv-9m-Etp">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRh-Yp-fuS">
+                                <rect key="frame" x="0.0" y="808" width="414" height="54"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.81960784310000001" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="trc-MO-ADL"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="current location Info"/>
+                                <connections>
+                                    <action selector="currentLocationAction:" destination="TWj-5h-fMa" eventType="touchUpInside" id="sJ9-Wy-VLA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="uRh-Yp-fuS" firstAttribute="trailing" secondItem="Emx-f9-28t" secondAttribute="trailing" id="8lD-oy-xbP"/>
+                            <constraint firstItem="uRh-Yp-fuS" firstAttribute="bottom" secondItem="Emx-f9-28t" secondAttribute="bottom" id="A4L-xn-XGo"/>
+                            <constraint firstItem="uRh-Yp-fuS" firstAttribute="leading" secondItem="Emx-f9-28t" secondAttribute="leading" id="Iiz-Ua-XCV"/>
                             <constraint firstItem="Emx-f9-28t" firstAttribute="trailing" secondItem="BQv-9m-Etp" secondAttribute="trailing" id="Ost-gR-rOY"/>
                             <constraint firstItem="BQv-9m-Etp" firstAttribute="leading" secondItem="Emx-f9-28t" secondAttribute="leading" id="XUi-f1-6RZ"/>
                             <constraint firstItem="BQv-9m-Etp" firstAttribute="top" secondItem="Emx-f9-28t" secondAttribute="top" constant="-44" id="mBW-Aa-zj7"/>
@@ -35,13 +50,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Za7-Es-Tnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="156"/>
+            <point key="canvasLocation" x="-2188.4057971014495" y="136.60714285714286"/>
+        </scene>
+        <!--Presented Navigation Controller-->
+        <scene sceneID="vEt-Ts-jGU">
+            <objects>
+                <navigationController storyboardIdentifier="PresentedNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="cbJ-xc-gBo" customClass="PresentedNavigationController" customModule="breathe_air" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AyZ-kt-SgB">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PU2-PU-yf4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hxh-Ge-osf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-872" y="137"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="breathe_air" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeViewController" customModule="breathe_air" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="HomeView" customModule="breathe_air" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -191,12 +222,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="y8m-eD-iXe"/>
                     <connections>
                         <outlet property="cityLabel" destination="Ndp-YH-SJW" id="4Bh-bA-fog"/>
                         <outlet property="index2Label" destination="MGq-TS-odZ" id="5dB-vg-W6Y"/>
                         <outlet property="index3Label" destination="CQz-pt-dbc" id="9We-1i-6b3"/>
                         <outlet property="indexLabel" destination="3Iu-OO-y4V" id="fUe-Bt-2Yl"/>
                         <outlet property="offerTodo" destination="zAX-ZG-LqG" id="SwM-vu-Yca"/>
+                        <outlet property="presentedView" destination="8bC-Xf-vdC" id="XDV-wc-YoG"/>
                         <outlet property="reloadButton" destination="rdU-3Q-aTw" id="O0w-UE-ziP"/>
                         <outlet property="resultHourLabel" destination="cnA-xs-kir" id="gP4-Dd-uHu"/>
                         <outlet property="status" destination="tPe-hH-Uq1" id="06Q-Ty-PcF"/>

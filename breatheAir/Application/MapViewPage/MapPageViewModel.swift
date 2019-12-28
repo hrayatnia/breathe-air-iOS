@@ -21,6 +21,8 @@ struct MapPageOutput {
                                                                                                 error: nil,
                                                                                                 data: []))
     let err: Variable<Error> = Variable<Error>(NSError())
+    let errorMessage: PublishSubject<String> = PublishSubject()
+    
 }
 
 
@@ -44,6 +46,10 @@ struct MapPageViewModel: ViewModel {
         self.service.run_request()
     }
     
+    func run() {
+        self.service.run_request()
+    }
+    
     private func responseListener() {
         self
             .output
@@ -64,6 +70,7 @@ struct MapPageViewModel: ViewModel {
             .skip(1)
             .subscribe(onNext: {
                 error in
+                self.output.errorMessage.onNext("can't load stations")
             }).disposed(by: disposeBag)
     }
     
