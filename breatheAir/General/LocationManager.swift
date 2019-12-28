@@ -27,7 +27,6 @@ class LocationManager:NSObject, CLLocationManagerDelegate {
     var city: String? = nil
     override init() {
         super.init()
-        self.locationManager.requestAlwaysAuthorization()
 
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()

@@ -7,11 +7,15 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array/>
 			<key>CFBundleTypeName</key>
-			<string>MKDirectionsRequest</string>
+			<string>Text</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.apple.maps.directionsrequest</string>
+				<string>public.plain-text</string>
 			</array>
 		</dict>
 	</array>
@@ -31,10 +35,8 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>MKDirectionsApplicationSupportedModes</key>
-	<array>
-		<string>MKDirectionsModeOther</string>
-	</array>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -60,8 +62,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>breathe air need your location to detect nearest station to you, also it'll be used to detect your application locale, in background we will autoupdate the AQI index for you</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>breathe air need your location to detect nearest station to you, also it'll be used to detect your application locale</string>
 	<key>UILaunchStoryboardName</key>

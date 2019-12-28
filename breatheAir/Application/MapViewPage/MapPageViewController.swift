@@ -43,7 +43,7 @@ class MapPageViewController: UIViewController,DrawerCoordinating {
     
     
     private func initMapView() {
-        if CLLocationManager.authorizationStatus() == .authorizedAlways {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             self.mapView.showsUserLocation = true
             self.mapView.userTrackingMode = .follow
         } else {
